@@ -1,4 +1,6 @@
-class Wizard extends LivingCreature {
+var LivingCreature = require('./livingCreature')
+
+module.exports = class Wizard extends LivingCreature {
     constructor(x, y, index) {
      super(x,y,index);
     }

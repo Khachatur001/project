@@ -1,4 +1,6 @@
-class Mard extends LivingCreature {
+var LivingCreature = require('./livingCreature')
+
+module.exports = class Mard extends LivingCreature {
     constructor(x, y, index) {
         super(x,y,index);
         this.multiply = 0;

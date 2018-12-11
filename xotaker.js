@@ -1,4 +1,6 @@
-class Xotaker extends LivingCreature{
+var LivingCreature = require('./livingCreature')
+
+module.exports = class Xotaker extends LivingCreature{
     getNewDirections() {
         this.directions = [
             [this.x - 1, this.y - 1],
