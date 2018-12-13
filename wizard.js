@@ -22,7 +22,7 @@ module.exports = class Wizard extends LivingCreature {
     }
 
     kaxardanq() {
-        var empty = random(this.chooseCell(4));
+        this.direction = this.chooseCell(4)[ Math.floor(Math.random()*this.chooseCell(4) + this.chooseCell(4).le)];
         if (empty) {
             var newX = empty[0];
             var newY = empty[1];
