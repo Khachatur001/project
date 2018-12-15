@@ -22,11 +22,12 @@ module.exports = class Wizard extends LivingCreature {
     }
 
     kaxardanq() {
-        this.direction = this.chooseCell(4)[ Math.floor(Math.random()*this.chooseCell(4) + this.chooseCell(4).le)];
+        var empty = this.chooseCell(4)[ Math.floor(Math.random()*this.chooseCell(4).length)];
         if (empty) {
             var newX = empty[0];
             var newY = empty[1];
             matrix[newY][newX] = 1;
+            var Grass = require('./grass.js');
             var gr = new Grass(newX, newY);
             grassArr.push(gr);
             for (var i in mardArr) {
@@ -36,5 +37,4 @@ module.exports = class Wizard extends LivingCreature {
             }
         }
     }
-
 }

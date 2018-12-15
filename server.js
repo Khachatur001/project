@@ -2,31 +2,23 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
-var messages = [];
 
 app.use(express.static("."));
 app.get('/', function (req, res) {
-    res.redirect('index.html');
+   res.redirect('index.html');
 });
 server.listen(3000);
 
-io.on('connection', function (socket) {
-    for (var i in messages) {
-        io.sockets.emit("display message", messages[i]);
+n = 50, m = 50;
+function genMatrix(m, n) {
+     matrix = [];
+    for (var y = 0; y < m; ++y) {
+        matrix.push([]);
+        for (var x = 0; x < n; x += 1) {
+            matrix[y].push(Math.round(Math.random() * 5))
+        }
     }
-    socket.on("send message", function (data) {
-        messages.push(data);
-        io.sockets.emit("display message", data);
-    });
-});
-
-var n = 50, m = 50;
-var matrix = [];
-for (var y = 0; y < m; ++y) {
-    matrix.push([]);
-    for (var x = 0; x < n; x += 1) {
-        matrix[y].push(Math.round(Math.random() * 5))
-    }
+    return matrix;
 }
 var LivingCreature = require('./livingCreature')
 var Grass = require('./grass.js');
@@ -35,12 +27,13 @@ var Gishatich = require('./gishatich.js');
 var Mard = require('./mard.js');
 var Wizard = require('./wizard.js');
 
-var grassArr = [];
-var xotakerArr = [];
-var gishatichArr = [];
-var mardArr = [];
-var wizardArr = [];
+grassArr = [];
+xotakerArr = [];
+gishatichArr = [];
+mardArr = [];
+wizardArr = [];
 
+matrix = genMatrix(m, n);
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
         if (matrix[y][x] == 1) {
@@ -69,10 +62,10 @@ for (var y = 0; y < matrix.length; y++) {
 setInterval(drawServerayin, 1000);
 
 function drawServerayin() {
-    for (var i in grassArr) {
+    for (i in grassArr) {
         grassArr[i].mult();
     }
-    for (var i in xotakerArr) {
+    for (i in xotakerArr) {
         xotakerArr[i].eat();
         xotakerArr[i].move();
         xotakerArr[i].mult();
@@ -94,6 +87,8 @@ function drawServerayin() {
     for (i in wizardArr) {
         wizardArr[i].kaxardanq();
     }
+
+        io.sockets.emit("matrix", matrix)
 }
 
 

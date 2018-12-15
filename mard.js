@@ -48,7 +48,7 @@ module.exports = class Mard extends LivingCreature {
     }
 
     mult() {
-        this.direction = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0) + this.chooseCell(0).le)];
+        var empty = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0).length)];
         this.multiply++;
         if (empty && this.multiply > 1) {
             var newX = empty[0];
@@ -60,7 +60,7 @@ module.exports = class Mard extends LivingCreature {
         }
     }
     move() {
-        this.direction = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0) + this.chooseCell(0).le)];
+        var empty = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0).length)];
         this.energy--;
         if (empty) {
             var newX = empty[0];
@@ -70,7 +70,7 @@ module.exports = class Mard extends LivingCreature {
             this.y = newY
             this.x = newX
         }
-        this.direction = this.chooseCell(1)[ Math.floor(Math.random()*this.chooseCell(1) + this.chooseCell(1).le)];
+        var empty = this.chooseCell(1)[ Math.floor(Math.random()*this.chooseCell(1).length)];
         this.energy--;
         if (empty) {
             var newX = empty[0];
@@ -82,7 +82,7 @@ module.exports = class Mard extends LivingCreature {
         }
     }
     eat() {
-        this.direction = this.chooseCell(3)[ Math.floor(Math.random()*this.chooseCell(3) + this.chooseCell(3).le)];
+        var empty = this.chooseCell(3)[ Math.floor(Math.random()*this.chooseCell(3).length)];
         if (empty) {
             this.energy++;
             var newX = empty[0];

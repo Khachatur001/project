@@ -1,7 +1,7 @@
 var LivingCreature = require('./livingCreature')
 module.exports = class Grass extends LivingCreature {
     mult() {
-        this.direction = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0) + this.chooseCell(0).le)];
+        var empty = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0).length)];
         if (empty) {
             var x = empty[0];
             var y = empty[1];

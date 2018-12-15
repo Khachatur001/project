@@ -18,7 +18,7 @@ module.exports = class Xotaker extends LivingCreature{
     }
 
     mult() {
-        this.direction = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0) + this.chooseCell(0).le)];
+        var empty = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0).length)];
         this.multiply++;
         if (empty && this.multiply > 6) {
             var newX = empty[0];
@@ -30,7 +30,7 @@ module.exports = class Xotaker extends LivingCreature{
         }
     }
     move() {
-        this.direction = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0) + this.chooseCell(0).le)];
+        var empty = this.chooseCell(0)[ Math.floor(Math.random()*this.chooseCell(0).length)];
         this.energy--;
         if (empty) {
             var newX = empty[0];
@@ -42,7 +42,7 @@ module.exports = class Xotaker extends LivingCreature{
         }
     }
     eat() {
-        this.direction = this.chooseCell(1)[ Math.floor(Math.random()*this.chooseCell(1) + this.chooseCell(1).le)];
+        var empty = this.chooseCell(1)[ Math.floor(Math.random()*this.chooseCell(1).length)];
         if (empty) {
             this.energy += 2;
             var newX = empty[0];
