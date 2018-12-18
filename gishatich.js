@@ -54,6 +54,7 @@ module.exports = class Gishatich extends LivingCreature {
             matrix[this.y][this.x] = 1
             this.y = newY
             this.x = newX
+            gishatichySharjvec++;
         }
     }
     eat() {

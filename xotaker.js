@@ -56,6 +56,7 @@ module.exports = class Xotaker extends LivingCreature{
             }
             this.x = newX;
             this.y = newY;
+            xotakeryKerav++;
         }
     }
     die() {
