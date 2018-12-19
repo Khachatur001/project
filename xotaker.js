@@ -27,6 +27,7 @@ module.exports = class Xotaker extends LivingCreature{
             var xt = new Xotaker(newX, newY);
             xotakerArr.push(xt)
             this.multiply = 0
+            xotakerMult++;
         }
     }
     move() {
@@ -39,6 +40,7 @@ module.exports = class Xotaker extends LivingCreature{
             matrix[this.y][this.x] = 0
             this.y = newY
             this.x = newX
+            xotakerMove++;
         }
     }
     eat() {
@@ -56,7 +58,7 @@ module.exports = class Xotaker extends LivingCreature{
             }
             this.x = newX;
             this.y = newY;
-            xotakeryKerav++;
+            xotakerEat++;
         }
     }
     die() {
@@ -67,7 +69,7 @@ module.exports = class Xotaker extends LivingCreature{
                     xotakerArr.splice(i, 1);
                 }
             }
-
+            xotakerDie++;
         }
     }
 }

@@ -2,7 +2,7 @@ var LivingCreature = require('./livingCreature')
 
 module.exports = class Gishatich extends LivingCreature {
     constructor(x, y, index) {
-       super(x,y,index);
+        super(x, y, index);
         this.multiply = 0;
         this.energy = 15;
     }
@@ -23,7 +23,7 @@ module.exports = class Gishatich extends LivingCreature {
     }
 
     mult() {
-        var empty = this.chooseCell(0)[ Math.floor(Math.random()* this.chooseCell(0).length)];
+        var empty = this.chooseCell(0)[Math.floor(Math.random() * this.chooseCell(0).length)];
         this.multiply++;
         if (empty && this.multiply > 1) {
             var newX = empty[0];
@@ -32,10 +32,11 @@ module.exports = class Gishatich extends LivingCreature {
             var gt = new Gishatich(newX, newY);
             gishatichArr.push(gt)
             this.multiply = 0
+            gishatichMult++;
         }
     }
     move() {
-        var empty = this.chooseCell(0)[ Math.floor(Math.random()* this.chooseCell(0).length)];
+        var empty = this.chooseCell(0)[Math.floor(Math.random() * this.chooseCell(0).length)];
         this.energy--;
         if (empty) {
             var newX = empty[0];
@@ -45,7 +46,7 @@ module.exports = class Gishatich extends LivingCreature {
             this.y = newY
             this.x = newX
         }
-        var empty = this.chooseCell(1)[ Math.floor(Math.random()* this.chooseCell(1).length)];
+        var empty = this.chooseCell(1)[Math.floor(Math.random() * this.chooseCell(1).length)];
         this.energy--;
         if (empty) {
             var newX = empty[0];
@@ -54,11 +55,12 @@ module.exports = class Gishatich extends LivingCreature {
             matrix[this.y][this.x] = 1
             this.y = newY
             this.x = newX
-            gishatichySharjvec++;
+
         }
+        gishatichMove++;
     }
     eat() {
-        var empty = this.chooseCell(2)[ Math.floor(Math.random()* this.chooseCell(2).length)];
+        var empty = this.chooseCell(2)[Math.floor(Math.random() * this.chooseCell(2).length)];
         if (empty) {
             this.energy += 4;
             var newX = empty[0];
@@ -72,6 +74,7 @@ module.exports = class Gishatich extends LivingCreature {
             }
             this.x = newX;
             this.y = newY;
+            gishatichEat++;
         }
     }
     die() {
@@ -82,7 +85,7 @@ module.exports = class Gishatich extends LivingCreature {
                     gishatichArr.splice(i, 1);
                 }
             }
-
+            gishatichDie++;
         }
     }
 }

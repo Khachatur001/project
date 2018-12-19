@@ -36,5 +36,6 @@ module.exports = class Wizard extends LivingCreature {
                 }
             }
         }
+        wizardKaxardanq++;
     }
 }

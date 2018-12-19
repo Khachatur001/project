@@ -33,8 +33,24 @@ gishatichArr = [];
 mardArr = [];
 wizardArr = [];
 
-xotakeryKerav = 0
-gishatichySharjvec = 0
+grassMult = 0;
+
+xotakerMult = 0;
+xotakerMove = 0;
+xotakerEat = 0;
+xotakerDie = 0;
+
+gishatichMult = 0;
+gishatichMove = 0;
+gishatichEat = 0;
+gishatichDie = 0;
+
+mardMult = 0;
+mardMove = 0;
+mardEat = 0;
+mardDie = 0;
+
+wizardKaxardanq = 0;
 
 matrix = genMatrix(m, n);
 for (var y = 0; y < matrix.length; y++) {
@@ -116,7 +132,23 @@ function drawServerayin() {
 var obj = { "info": [] };
 function tpel() {
     var file = "statistics.json"
-    obj.info.push({ "qani hata kerel xotakery": xotakeryKerav, "qani angam gishatichy sharjvec": gishatichySharjvec })
+    obj.info.push(
+        {   
+             "qani angam xotery bazmacan": grassMult,
+             "qani angam xotakernery bazmacan": xotakerMult, 
+             "qani angam xotakernery sharjvecin": xotakerMove,
+             "qani angam xotakernery keran": xotakerEat, 
+             "qani angam xotakernery meran": xotakerDie, 
+             "qani angam gishatichnery bazmacan": gishatichMult,
+             "qani angam gishatichnery sharjvecin": gishatichMove,
+             "qani angam gishatichnery keran": gishatichEat,
+             "qani angam gishatichnery meran": gishatichDie,
+             "qani angam mardiq bazmacan": mardMult,
+             "qani angam mardiq sharjvecin": mardMove,
+             "qani angam mardiq keran": mardEat,
+             "qani angam mardiq meran": mardDie,
+            "qani angam kaxardnery kaxardecin": wizardKaxardanq
+        })
     fs.writeFileSync(file, JSON.stringify(obj))
 };
 

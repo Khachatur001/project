@@ -57,6 +57,7 @@ module.exports = class Mard extends LivingCreature {
             var m = new Mard(newX, newY);
             mardArr.push(m)
             this.multiply = 0
+            mardMult++;
         }
     }
     move() {
@@ -80,6 +81,7 @@ module.exports = class Mard extends LivingCreature {
             this.y = newY
             this.x = newX
         }
+        mardMove++;
     }
     eat() {
         var empty = this.chooseCell(3)[ Math.floor(Math.random()*this.chooseCell(3).length)];
@@ -96,6 +98,7 @@ module.exports = class Mard extends LivingCreature {
             }
             this.x = newX;
             this.y = newY;
+            mardEat++;
         }
     }
     die() {
@@ -106,7 +109,7 @@ module.exports = class Mard extends LivingCreature {
                     mardArr.splice(i, 1);
                 }
             }
-
+            mardDie++;
         }
     }
 }
