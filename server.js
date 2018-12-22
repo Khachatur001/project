@@ -9,6 +9,14 @@ app.get('/', function (req, res) {
 });
 server.listen(3000);
 
+io.on('connection', function (socket) {
+    socket.on("send message", function (data) {
+        messages.push(data);
+        io.sockets.emit("display message", data);
+    });
+ });
+
+ 
 n = 50, m = 50;
 function genMatrix(m, n) {
     matrix = [];
@@ -154,3 +162,41 @@ function tpel() {
 };
 
 setInterval(tpel, 10000);
+
+
+function restart() {
+
+    grassArr = [];
+    xotakerArr = [];
+    gishatichArr = [];
+    mardArr = [];
+    wizardArr = [];
+
+     
+    newMatrix = genMatrix(m, n);
+
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            if (matrix[y][x] == 1) {
+                var gr = new Grass(x, y)
+                grassArr.push(gr);
+            }
+            else if (matrix[y][x] == 2) {
+                var xt = new Xotaker(x, y)
+                xotakerArr.push(xt);
+            }
+            else if (matrix[y][x] == 3) {
+                var gh = new Gishatich(x, y)
+                gishatichArr.push(gh);
+            }
+            else if (matrix[y][x] == 4) {
+                var m = new Mard(x, y)
+                mardArr.push(m);
+            }
+            else if (matrix[y][x] == 5) {
+                var wz = new Wizard(x, y)
+                wizardArr.push(wz);
+            }
+        }
+    } 
+}
