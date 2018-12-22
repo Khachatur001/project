@@ -53,6 +53,7 @@ mardDie = 0;
 wizardKaxardanq = 0;
 
 matrix = genMatrix(m, n);
+
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
         if (matrix[y][x] == 1) {
@@ -96,7 +97,7 @@ function exanak() {
     io.sockets.emit("weather", weather)
 }
 
-setInterval(exanak, 5000);
+setInterval(exanak, 7000);
 setInterval(drawServerayin, 1000);
 
 function drawServerayin() {
@@ -149,7 +150,7 @@ function tpel() {
              "qani angam mardiq meran": mardDie,
             "qani angam kaxardnery kaxardecin": wizardKaxardanq
         })
-    fs.writeFileSync(file, JSON.stringify(obj))
+    fs.writeFileSync(file, JSON.stringify(obj, null, 4))
 };
 
-setInterval(tpel, 5000);
+setInterval(tpel, 10000);

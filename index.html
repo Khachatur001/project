@@ -3,7 +3,6 @@
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="script.js"></script>
     <style>
         #legend {
             position: absolute;
@@ -22,10 +21,22 @@
             font-size: 14px;
             padding-left: 5px;
         }
+        #restart
+        {
+            width: 120px;
+            height: 120px;
+            border-radius: 80px;
+            background: red;
+            color: white;
+            float: right;
+            margin-right: 300px;
+            margin-top: 480px;
+        }
     </style>
 </head>
 
 <body>
+    <button id="restart" >Restart</button>
     <table id="legend">
         <tr>
             <td class="legend-color">Գույն</td>
@@ -85,6 +96,9 @@
             <td>չի մահանում</td>
         </tr>
     </table>
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>
