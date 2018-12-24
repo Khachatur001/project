@@ -20,8 +20,10 @@ function btnClick(){
 
 
 var p = document.getElementById("restart");
-p.onclick = btnClick;
-socket.on("restart", btnClick)
+socket.on("restart", function (btnClick)
+{
+    p.onclick = btnClick
+})
 
 function drawMatrix(matrix) {
 

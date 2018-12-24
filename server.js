@@ -8,14 +8,6 @@ app.get('/', function (req, res) {
     res.redirect('index.html');
 });
 server.listen(3000);
-
-io.on('connection', function (socket) {
-    socket.on("send message", function (data) {
-        messages.push(data);
-        io.sockets.emit("display message", data);
-    });
- });
-
  
 n = 50, m = 50;
 function genMatrix(m, n) {
@@ -134,7 +126,6 @@ function drawServerayin() {
     for (i in wizardArr) {
         wizardArr[i].kaxardanq();
     }
-    // console.log(weather);
     io.sockets.emit("matrix", matrix);
 }
 
@@ -199,4 +190,5 @@ function restart() {
             }
         }
     } 
+    io.sockets.emit("restart",restart)
 }
